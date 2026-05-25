@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "Multi-Persona Evidence Tribunal (MPET): A Cross-Paradigm Review Methodology"
+version: "1.0.0"
+date-released: "2026-04-07"
+authors:
+  - family-names: Ahmad
+    given-names: Mahmood
+    orcid: "https://orcid.org/0000-0001-9107-3704"
+    affiliation: "Tahir Heart Institute"
+repository-code: "https://github.com/mahmood726-cyber/Metadta"
+url: "https://github.com/mahmood726-cyber/Metadta"
+license: MIT
+keywords:
+  - meta-analysis
+  - evidence-synthesis
+  - E156
