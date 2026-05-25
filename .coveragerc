@@ -1,0 +1,29 @@
+[run]
+# Exclude test code itself + ad-hoc Selenium scripts + scaffolds.
+omit =
+    tests/*
+    */tests/*
+    conftest.py
+    */conftest.py
+    selenium_*_legacy.py
+    test_*_legacy.py
+    setup.py
+    */migrations/*
+    */node_modules/*
+    */.venv/*
+    */venv/*
+
+source =
+    .
+
+[report]
+# Don't fail on missing source files (e.g., R scripts in mixed repos).
+ignore_errors = True
+# Skip files with 100 percent coverage from terminal output (keeps CI log short).
+skip_covered = False
+# Standard exclusions for non-runtime code.
+exclude_lines =
+    pragma: no cover
+    raise NotImplementedError
+    if __name__ == .__main__.:
+    if TYPE_CHECKING:
