@@ -1,0 +1,31 @@
+# EditorConfig — keeps formatting consistent across IDEs.
+# https://editorconfig.org/
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 4
+
+# 2-space indent for markup/data (YAML/JSON/TOML/HTML/CSS/JS/MD)
+[*.{yaml,yml,json,toml,html,css,js,jsx,ts,tsx,md,markdown}]
+indent_size = 2
+
+# Tab indent for Makefiles (required by make)
+[Makefile]
+indent_style = tab
+
+# 4-space indent for Python (PEP 8)
+[*.py]
+indent_size = 4
+
+# Don't enforce LF on Windows batch / PowerShell — they prefer CRLF
+[*.{bat,cmd,ps1}]
+end_of_line = crlf
+
+# Don't trim trailing whitespace in markdown (intentional line breaks)
+[*.md]
+trim_trailing_whitespace = false
