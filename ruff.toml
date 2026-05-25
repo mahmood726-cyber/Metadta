@@ -1,0 +1,23 @@
+# Ruff configuration — matches the rule selection used in CI.
+# See `.github/workflows/ci.yml` for the same rule set in the lint job.
+
+line-length = 120
+target-version = "py310"
+
+[lint]
+# Conservative selection: errors, warnings, pyflakes, bugbear (real bugs),
+# comprehensions, isort, naming, pyupgrade, simplification, PIE, return,
+# ruff-specific safety checks.
+select = ["E", "W", "F", "B", "C4", "I", "N", "UP", "SIM", "PIE", "RET", "RUF"]
+
+# Don't auto-flag long lines on comments (URLs in docstrings); flag code lines.
+ignore = [
+    "E501",   # line-too-long — formatter handles this; keep informational
+    "B011",   # `assert False` — test scaffolding pattern is common here
+    "N812",   # lowercase imported as uppercase (numpy as np conventions etc.)
+    "SIM108", # ternary-instead-of-if-else — sometimes hurts readability
+]
+
+[lint.per-file-ignores]
+"tests/**/*.py" = ["B", "N802", "N803", "N806", "RUF"]  # test code is allowed to be looser
+"conftest.py" = ["B", "N802", "N803", "N806"]
