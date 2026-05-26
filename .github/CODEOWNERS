@@ -1,0 +1,4 @@
+# CODEOWNERS — GitHub auto-requests review from these owners on any
+# PR that touches matching paths. The single `*` catches every change.
+# Path-specific overrides can be added later (e.g. `/docs/ @docs-team`).
+* @mahmood726-cyber
