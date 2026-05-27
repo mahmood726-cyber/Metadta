@@ -1,0 +1,16 @@
+# pre-commit.ci config. Activate the integration once per repo at
+# https://pre-commit.ci by toggling the repo on — no other auth needed.
+#
+# Once activated, pre-commit.ci will:
+#   - Run the hooks defined in .pre-commit-config.yaml on every PR
+#   - Open auto-fix PRs weekly with `pre-commit autoupdate` to bump
+#     the pinned hook revisions
+ci:
+  autofix_commit_msg: |
+    [pre-commit.ci] auto-fix
+  autofix_prs: true
+  autoupdate_branch: ""
+  autoupdate_commit_msg: "[pre-commit.ci] pre-commit autoupdate"
+  autoupdate_schedule: weekly
+  skip: []
+  submodules: false
