@@ -5016,22 +5016,22 @@ function exportPDF() {
   const dateOnly = new Date().toISOString().slice(0, 10);
 
   // Get current results from the page
-  const tau2 = document.getElementById('statTau2')?.textContent || 'N/A';
-  const i2 = document.getElementById('statI2')?.textContent || 'N/A';
-  const qStat = document.getElementById('statQ')?.textContent || 'N/A';
-  const qPval = document.getElementById('statQp')?.textContent || 'N/A';
+  const tau2 = escapeHTML(document.getElementById('statTau2')?.textContent || 'N/A');
+  const i2 = escapeHTML(document.getElementById('statI2')?.textContent || 'N/A');
+  const qStat = escapeHTML(document.getElementById('statQ')?.textContent || 'N/A');
+  const qPval = escapeHTML(document.getElementById('statQp')?.textContent || 'N/A');
   const coeffTable = document.getElementById('coefficientsTable')?.innerHTML || '';
   const rrTable = document.getElementById('rrTableBody')?.innerHTML || '';
-  const modelType = document.getElementById('modelSelect')?.value || 'quadratic';
-  const ciLevel = currentCI || 95;
+  const modelType = escapeHTML(document.getElementById('modelSelect')?.value || 'quadratic');
+  const ciLevel = Number(currentCI) || 95;
 
   // Get publication bias results if available
-  const eggerResult = document.getElementById('eggerResult')?.textContent || '';
-  const beggResult = document.getElementById('beggResult')?.textContent || '';
-  const trimFillResult = document.getElementById('trimFillResult')?.textContent || '';
+  const eggerResult = escapeHTML(document.getElementById('eggerResult')?.textContent || '');
+  const beggResult = escapeHTML(document.getElementById('beggResult')?.textContent || '');
+  const trimFillResult = escapeHTML(document.getElementById('trimFillResult')?.textContent || '');
 
   // Get GRADE assessment if available
-  const gradeRating = document.getElementById('gradeOverallRating')?.textContent || '';
+  const gradeRating = escapeHTML(document.getElementById('gradeOverallRating')?.textContent || '');
 
   // Capture plots as images
   const mainPlotCanvas = document.getElementById('mainPlot');
