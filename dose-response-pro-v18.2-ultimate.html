@@ -5065,7 +5065,7 @@ function exportPDF() {
   }
 
   // Build results narrative
-  let resultsNarrative = `The analysis included ${r.nStudies || 'N/A'} studies contributing ${r.nPoints || 'N/A'} data points. `;
+  let resultsNarrative = `The analysis included ${escapeHTML(r.nStudies || 'N/A')} studies contributing ${escapeHTML(r.nPoints || 'N/A')} data points. `;
 
   if (tau2 !== 'N/A' && i2 !== 'N/A') {
     resultsNarrative += `Between-study heterogeneity was assessed using the τ² statistic (${tau2}) and I² index (${i2}`;
