@@ -5535,9 +5535,9 @@ function loadAnalysis() {
     const data = JSON.parse(saved);
     document.getElementById('dataInput').value = data.data;
     analysisResults = data.results;
-    currentCI = data.settings?.currentCI || 95;
-    currentTau2 = data.settings?.currentTau2 || null;
-    influenceThreshold = data.settings?.influenceThreshold || 10;
+    currentCI = Number(data.settings?.currentCI) || 95;
+    currentTau2 = data.settings?.currentTau2 != null ? Number(data.settings.currentTau2) : null;
+    influenceThreshold = Number(data.settings?.influenceThreshold) || 10;
     currentMainModel = normalizeMainModel(data.settings?.currentMainModel || data.results?.modelType || 'quadratic');
     useHKSJ = !!data.settings?.useHKSJ;
 
