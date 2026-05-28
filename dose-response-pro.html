@@ -3559,7 +3559,7 @@ function updateInterpretationLegacy(r) {
 
   html += `<p><strong>Heterogeneity:</strong> Heterogeneity is ${hInterp} (I2 = ${r.I2.toFixed(1)}%, Q = ${r.Q.toFixed(2)}, df = ${r.df}, p = ${formatPValue(r.Qp)}). ${pInterp}.</p>`;
 
-  html += `<p><strong>Method:</strong> Two-stage dose-response meta-analysis using generalized least squares with the Greenland-Longnecker covariance framework. Random-effects model with ${tau2MethodText} (tau2 = ${r.tau2 !== null && r.tau2 !== undefined ? r.tau2.toFixed(4) : 'N/A'}).</p>`;
+  html += `<p><strong>Method:</strong> Two-stage dose-response meta-analysis using generalized least squares with the Greenland-Longnecker covariance framework. Random-effects model with ${escapeHTML(tau2MethodText)} (tau2 = ${r.tau2 !== null && r.tau2 !== undefined ? r.tau2.toFixed(4) : 'N/A'}).</p>`;
 
   if (r.covarianceSummary && r.covarianceSummary.totalBlocks > 0) {
     const approx = r.covarianceSummary.approximate || 0;
@@ -3646,7 +3646,7 @@ function updateInterpretation(r) {
     : (useREML ? 'REML variance estimation' : 'DL variance estimation');
 
   let html = `<p><strong>Summary of Findings:</strong> The pooled analysis shows a ${direction} in risk with increasing dose. `;
-  html += `Using a <strong>${getMainModelLabel(modelType)}</strong> model, the relative risk for a 1-unit increase from dose 0 is <strong>${rr.toFixed(3)}</strong> `;
+  html += `Using a <strong>${escapeHTML(getMainModelLabel(modelType))}</strong> model, the relative risk for a 1-unit increase from dose 0 is <strong>${rr.toFixed(3)}</strong> `;
   html += `(${percentChange}% change, ${currentCI}% CI: [${ciLowerRR.toFixed(2)}, ${ciUpperRR.toFixed(2)}]). `;
   html += `There is ${trendInterp} (p = ${Number.isFinite(pLinear) ? (pLinear < 0.001 ? '<0.001' : pLinear.toFixed(3)) : 'NA'}).</p>`;
 
@@ -3668,9 +3668,9 @@ function updateInterpretation(r) {
   html += `<p><strong>Heterogeneity:</strong> Heterogeneity is ${hInterp} (I2 = ${r.I2.toFixed(1)}%, Q = ${r.Q.toFixed(2)}, df = ${r.df}, p = ${formatPValue(r.Qp)}). ${pInterp}.</p>`;
 
   html += `<p><strong>Method:</strong> Two-stage dose-response meta-analysis using generalized least squares with the Greenland-Longnecker covariance framework. `;
-  html += `Primary model: ${getMainModelLabel(modelType)}. Random-effects model with ${tau2MethodText} `;
+  html += `Primary model: ${escapeHTML(getMainModelLabel(modelType))}. Random-effects model with ${tau2MethodText} `;
   html += `(tau2 = ${r.tau2 !== null && r.tau2 !== undefined ? r.tau2.toFixed(4) : 'N/A'}). `;
-  html += `Primary contrast inference: ${inference.method}.</p>`;
+  html += `Primary contrast inference: ${escapeHTML(inference.method)}.</p>`;
 
   if (r.covarianceSummary && r.covarianceSummary.totalBlocks > 0) {
     const approx = r.covarianceSummary.approximate || 0;
